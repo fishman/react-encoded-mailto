@@ -130,11 +130,11 @@ var Mailto = (function (_Component) {
   _createClass(Mailto, null, [{
     key: 'propTypes',
     value: {
-      children: _react.PropTypes.object.isRequired,
+      children: _react.PropTypes.string.isRequired,
       email: _react.PropTypes.string.isRequired,
-      decimal: _react.PropTypes.boolean,
-      hexadecimal: _react.PropTypes.boolean,
-      obfuscate: _react.PropTypes.boolean
+      decimal: _react.PropTypes.bool,
+      hexadecimal: _react.PropTypes.bool,
+      obfuscate: _react.PropTypes.bool
     },
     enumerable: true
   }, {
