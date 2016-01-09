@@ -2,11 +2,11 @@ import React, {Component, PropTypes} from 'react';
 
 export default class Mailto extends Component {
   static propTypes = {
-    email: PropTypes.string.required,
-    decimal: PropTypes.boolean,
-    hexadecimal: PropTypes.boolean,
-    obfuscate: PropTypes.boolean,
-    children: PropTypes.object
+    children: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    decimal: PropTypes.bool,
+    hexadecimal: PropTypes.bool,
+    obfuscate: PropTypes.bool
   };
 
   static defaultProps = {

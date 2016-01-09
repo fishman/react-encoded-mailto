@@ -1,6 +1,6 @@
 {
   "name": "react-encoded-mailto",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "React component that obfuscates your email address to avoid bots",
   "repository": {
     "type": "git",
