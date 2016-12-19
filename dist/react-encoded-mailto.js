@@ -1,156 +1,145 @@
 'use strict';
 
-var _reactTransformCatchErrors2 = require('react-transform-catch-errors');
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
 
-var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
+var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
 
-var _reactTransformCatchErrors3 = _interopRequireDefault(_reactTransformCatchErrors2);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _class, _temp;
 
 var _react = require('react');
 
-var _redboxReact = require('redbox-react');
-
-var _inherits = require('babel-runtime/helpers/inherits')['default'];
-
-var _createClass = require('babel-runtime/helpers/create-class')['default'];
-
-var _classCallCheck = require('babel-runtime/helpers/class-call-check')['default'];
-
-exports.__esModule = true;
-
 var _react2 = _interopRequireDefault(_react);
 
-var _components = {
-  _$Mailto: {
-    displayName: 'Mailto'
-  }
-};
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var _reactComponentWrapper = _reactTransformCatchErrors3['default']({
-  filename: 'src/react-encoded-mailto.jsx',
-  components: _components,
-  locals: [],
-  imports: [_react, _redboxReact]
-});
-
-function _wrapComponent(uniqueId) {
-  return function (ReactClass) {
-    return _reactComponentWrapper(ReactClass, uniqueId);
-  };
-}
-
-var Mailto = (function (_Component) {
-  _inherits(Mailto, _Component);
+var Mailto = (_temp = _class = function (_Component) {
+  (0, _inherits3.default)(Mailto, _Component);
 
   function Mailto() {
-    _classCallCheck(this, _Mailto);
-
-    _Component.apply(this, arguments);
+    (0, _classCallCheck3.default)(this, Mailto);
+    return (0, _possibleConstructorReturn3.default)(this, (Mailto.__proto__ || (0, _getPrototypeOf2.default)(Mailto)).apply(this, arguments));
   }
 
-  // not worth putting the condition in one with a base parameter
+  (0, _createClass3.default)(Mailto, [{
+    key: 'charEncode',
 
-  Mailto.prototype.charEncode = function charEncode(chr) {
-    return '&#' + chr.toString() + ';';
-  };
 
-  Mailto.prototype.hexEncode = function hexEncode(chr) {
-    return '&#x' + chr.toString(16) + ';';
-  };
-
-  Mailto.prototype.encodeString = function encodeString(originalString) {
-    var _props = this.props;
-    var obfuscate = _props.obfuscate;
-    var decimal = _props.decimal;
-    var hexadecimal = _props.hexadecimal;
-
-    var originalLength = originalString.length;
-
-    var encodedString = '';
-    var encMode = undefined;
-
-    if (!obfuscate) {
-      return originalString;
+    // not worth putting the condition in one with a base parameter
+    value: function charEncode(chr) {
+      return '&#' + chr.toString() + ';';
     }
-
-    if (decimal) {
-      encMode = 1;
-    } else if (hexadecimal) {
-      encMode = 2;
-    }
-
-    for (var pos = 0; pos < originalLength; pos++) {
-      var chr = Number(originalString.charCodeAt(pos));
-      encMode = Math.ceil(2 * Math.random());
-      switch (encMode) {
-        case 1:
-          encodedString += this.charEncode(chr);
-          break;
-        case 2:
-          encodedString += this.hexEncode(chr);
-          break;
-        default:
-          return 'ERROR: wrong random number.';
-      }
-    }
-    return encodedString;
-  };
-
-  Mailto.prototype.encodeMail = function encodeMail(originalString) {
-    var obfuscate = this.props.obfuscate;
-
-    var originalLength = originalString.length;
-
-    var encodedString = '';
-
-    if (!obfuscate) {
-      return originalString;
-    }
-
-    for (var pos = 0; pos < originalLength; pos++) {
-      encodedString += '%' + Number(originalString.charCodeAt(pos)).toString(16);
-    }
-    return encodedString;
-  };
-
-  Mailto.prototype.generateHref = function generateHref(email) {
-    return 'mailto:' + this.encodeMail(email);
-  };
-
-  Mailto.prototype.render = function render() {
-    var email = this.props.email;
-
-    return _react2['default'].createElement(
-      'a',
-      { href: '' + this.generateHref(email) },
-      this.props.children
-    );
-  };
-
-  _createClass(Mailto, null, [{
-    key: 'propTypes',
-    value: {
-      children: _react.PropTypes.string.isRequired,
-      email: _react.PropTypes.string.isRequired,
-      decimal: _react.PropTypes.bool,
-      hexadecimal: _react.PropTypes.bool,
-      obfuscate: _react.PropTypes.bool
-    },
-    enumerable: true
   }, {
-    key: 'defaultProps',
-    value: {
-      obfuscate: false,
-      decimal: false,
-      hexadecimal: false
-    },
-    enumerable: true
+    key: 'hexEncode',
+    value: function hexEncode(chr) {
+      return '&#x' + chr.toString(16) + ';';
+    }
+  }, {
+    key: 'encodeString',
+    value: function encodeString(originalString) {
+      var _props = this.props,
+          obfuscate = _props.obfuscate,
+          decimal = _props.decimal,
+          hexadecimal = _props.hexadecimal;
+
+      var originalLength = originalString.length;
+
+      var encodedString = '';
+      var encMode = void 0;
+
+      if (!obfuscate) {
+        return originalString;
+      }
+
+      if (decimal) {
+        encMode = 1;
+      } else if (hexadecimal) {
+        encMode = 2;
+      }
+
+      for (var pos = 0; pos < originalLength; pos++) {
+        var chr = Number(originalString.charCodeAt(pos));
+        encMode = Math.ceil(2 * Math.random());
+        switch (encMode) {
+          case 1:
+            encodedString += this.charEncode(chr);
+            break;
+          case 2:
+            encodedString += this.hexEncode(chr);
+            break;
+          default:
+            return 'ERROR: wrong random number.';
+        }
+      }
+      return encodedString;
+    }
+  }, {
+    key: 'encodeMail',
+    value: function encodeMail(originalString) {
+      var obfuscate = this.props.obfuscate;
+
+      var originalLength = originalString.length;
+
+      var encodedString = '';
+
+      if (!obfuscate) {
+        return originalString;
+      }
+
+      for (var pos = 0; pos < originalLength; pos++) {
+        encodedString += '%' + Number(originalString.charCodeAt(pos)).toString(16);
+      }
+      return encodedString;
+    }
+  }, {
+    key: 'generateHref',
+    value: function generateHref(email) {
+      return 'mailto:' + this.encodeMail(email);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var email = this.props.email;
+
+
+      return _react2.default.createElement(
+        'a',
+        { href: '' + this.generateHref(email) },
+        this.props.children
+      );
+    }
   }]);
-
-  var _Mailto = Mailto;
-  Mailto = _wrapComponent('_$Mailto')(Mailto) || Mailto;
   return Mailto;
-})(_react.Component);
-
-exports['default'] = Mailto;
+}(_react.Component), _class.propTypes = {
+  children: _react.PropTypes.string.isRequired,
+  email: _react.PropTypes.string.isRequired,
+  decimal: _react.PropTypes.bool,
+  hexadecimal: _react.PropTypes.bool,
+  obfuscate: _react.PropTypes.bool
+}, _class.defaultProps = {
+  obfuscate: false,
+  decimal: false,
+  hexadecimal: false
+}, _temp);
+exports.default = Mailto;
 module.exports = exports['default'];
